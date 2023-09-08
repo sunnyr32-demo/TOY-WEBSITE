@@ -15,8 +15,8 @@ param deployToyManualsStorageAccount bool
 @maxLength(13)
 param resourceNameSuffix string = uniqueString(resourceGroup().id)
 
-var appServiceAppName = 'toy-website-${resourceNameSuffix}'
-var appServicePlanName = 'toy-website-plan'
+var appServiceAppName = 'TOY-WEBSITE-${resourceNameSuffix}'
+var appServicePlanName = 'TOY-WEBSITE-plan'
 var toyManualsStorageAccountName = 'toyweb${resourceNameSuffix}'
 
 // Define the SKUs for each component based on the environment type.
