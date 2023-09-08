@@ -1,23 +1,8 @@
-trigger: none
-
-pool:
-  vmImage: ubuntu-latest
-
-variables:
-- name: deploymentDefaultLocation
-  value: westus3
-
-jobs:
-- job:
-  steps:
-
-  - task: AzureResourceManagerTemplateDeployment@3
-    inputs:
-      connectedServiceName: $(ServiceConnectionName)
-      deploymentName: $(Build.BuildNumber)
-      location: $(deploymentDefaultLocation)
-      resourceGroupName: $(ResourceGroupName)
-      csmFile: deploy/main.bicep
-      overrideParameters: >
-        -environmentType $(EnvironmentType)
-        -deployToyManualsStorageAccount $(DeployToyManualsStorageAccount)
+- task: AzureResourceManagerTemplateDeployment@3
+  inputs:
+    connectedServiceName: 'ToyWebsites'
+    location: 'westus3'
+    resourceGroupName: 'ToyWebsites'
+    csmFile: 'ToyWebsites'/main.bicep
+    overrideParameters: >
+        -parameterName parameterValue
